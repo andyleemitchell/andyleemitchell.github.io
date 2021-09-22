@@ -8,7 +8,7 @@ The main purpose of this website is for:
 
 Test for Katex:
 
-\int^{c}_{d} \frac{a}{b}
+$$\int^{c}_{d} \frac{a}{b}$$
 
 I have a [Twitter](https://www.twitter.com/andyleemitchell), and you can send me an email [here](mailto:andrew.leemitchell.2021@mumail.ie?subject=I%20came%20from%20your%20website).
 Thanks for looking!
