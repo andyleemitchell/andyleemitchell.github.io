@@ -10,7 +10,7 @@ Test for Katex:
 
 $$\int^{c}_{d} \frac{a}{b}$$
 
-Okay cool, katex is working so I can display $$\latex$$ stuff properly now. Like this: $$e=mc^2$$. Cool!
+Okay cool, katex is working so I can display $$\LaTeX$$ stuff properly now. Like this: $$e=mc^2$$. Cool!
 
 I have a [Twitter](https://www.twitter.com/andyleemitchell), and you can send me an email [here](mailto:andrew.leemitchell.2021@mumail.ie?subject=I%20came%20from%20your%20website).
 Thanks for looking!
