@@ -2,3 +2,4 @@ title:
 description: 
 
 markdown: kramdown
+math_engine: katex
