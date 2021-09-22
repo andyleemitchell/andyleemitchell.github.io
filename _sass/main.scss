@@ -7,3 +7,12 @@ body {
     font-family: "Roboto Mono", sans-serif;
     font-size: x-large;
 }
+
+.sidebar {
+    position: fixed;
+    color: aqua;
+    top: 20px;
+    left: 20px;
+    width: calc(50%-400px);
+    
+}
