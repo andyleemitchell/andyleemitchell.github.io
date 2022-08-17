@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<title>Test Post | Andy Lee Mitchell</title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.68.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://andyleemitchell.github.io/css/index.css">
+<link rel="canonical" href="https://andyleemitchell.github.io/posts/new-post/">
+<link rel="alternate" type="application/rss+xml" href="" title="Andy Lee Mitchell">
+
+<header>
+  
+    <a href="https://andyleemitchell.github.io/" class="title">Andy Lee Mitchell</a>
+  
+  
+</header>
+
+<article>
+  <header>
+    <h1>Test Post</h1>
+    <time datetime="2022-08-17T11:17:29&#43;01:00">August 17, 2022</time>
+  </header>
+  <h1 id="quicksort">Quicksort</h1>
+<p>Below is an implementation of the quicksort algorithm in C++. Thanks to <a href="https://www.geeksforgeeks.org/cpp-program-for-quicksort/">GeeksforGeeks</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// C++ Implementation of the Quick Sort Algorithm.
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">partition</span>(<span style="color:#66d9ef">int</span> arr[], <span style="color:#66d9ef">int</span> start, <span style="color:#66d9ef">int</span> end)
+{
+
+	<span style="color:#66d9ef">int</span> pivot <span style="color:#f92672">=</span> arr[start];
+
+	<span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> start <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> end; i<span style="color:#f92672">++</span>) {
+		<span style="color:#66d9ef">if</span> (arr[i] <span style="color:#f92672">&lt;=</span> pivot)
+			count<span style="color:#f92672">++</span>;
+	}
+
+	<span style="color:#75715e">// Giving pivot element its correct position
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> pivotIndex <span style="color:#f92672">=</span> start <span style="color:#f92672">+</span> count;
+	swap(arr[pivotIndex], arr[start]);
+
+	<span style="color:#75715e">// Sorting left and right parts of the pivot element
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> start, j <span style="color:#f92672">=</span> end;
+
+	<span style="color:#66d9ef">while</span> (i <span style="color:#f92672">&lt;</span> pivotIndex <span style="color:#f92672">&amp;&amp;</span> j <span style="color:#f92672">&gt;</span> pivotIndex) {
+
+		<span style="color:#66d9ef">while</span> (arr[i] <span style="color:#f92672">&lt;=</span> pivot) {
+			i<span style="color:#f92672">++</span>;
+		}
+
+		<span style="color:#66d9ef">while</span> (arr[j] <span style="color:#f92672">&gt;</span> pivot) {
+			j<span style="color:#f92672">--</span>;
+		}
+
+		<span style="color:#66d9ef">if</span> (i <span style="color:#f92672">&lt;</span> pivotIndex <span style="color:#f92672">&amp;&amp;</span> j <span style="color:#f92672">&gt;</span> pivotIndex) {
+			swap(arr[i<span style="color:#f92672">++</span>], arr[j<span style="color:#f92672">--</span>]);
+		}
+	}
+
+	<span style="color:#66d9ef">return</span> pivotIndex;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">quickSort</span>(<span style="color:#66d9ef">int</span> arr[], <span style="color:#66d9ef">int</span> start, <span style="color:#66d9ef">int</span> end)
+{
+
+	<span style="color:#75715e">// base case
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> (start <span style="color:#f92672">&gt;=</span> end)
+		<span style="color:#66d9ef">return</span>;
+
+	<span style="color:#75715e">// partitioning the array
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> partition(arr, start, end);
+
+	<span style="color:#75715e">// Sorting the left part
+</span><span style="color:#75715e"></span>	quickSort(arr, start, p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+
+	<span style="color:#75715e">// Sorting the right part
+</span><span style="color:#75715e"></span>	quickSort(arr, p <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, end);
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+
+	<span style="color:#66d9ef">int</span> arr[] <span style="color:#f92672">=</span> { <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">8</span> };
+	<span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+
+	quickSort(arr, <span style="color:#ae81ff">0</span>, n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+
+	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) {
+		cout <span style="color:#f92672">&lt;&lt;</span> arr[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div>
+</article>
+
+
+
+</html>
