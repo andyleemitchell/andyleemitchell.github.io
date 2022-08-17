@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on andyleemitchell</title>
+    <link>https://andyleemitchell.github.io/notes/</link>
+    <description>Recent content in Notes on andyleemitchell</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2021 Andy Lee Mitchell</copyright>
+    <lastBuildDate>Wed, 17 Aug 2022 22:59:07 +0100</lastBuildDate>
+    
+	<atom:link href="https://andyleemitchell.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fourier Transforms</title>
+      <link>https://andyleemitchell.github.io/notes/test/</link>
+      <pubDate>Wed, 17 Aug 2022 22:59:07 +0100</pubDate>
+      
+      <guid>https://andyleemitchell.github.io/notes/test/</guid>
+      <description>Intro The fourier transform is a hugely important tool in engineering. Here we will explore the basic idea, and how to use it to analyse sound recordings to remove unwanted noise.</description>
+    </item>
+    
+  </channel>
+</rss>
