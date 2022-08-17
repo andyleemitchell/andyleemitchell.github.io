@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Andy Lee Mitchell</title>
-    <link>https://andyleemitchell.github.io/categories/</link>
-    <description>Recent content in Categories on Andy Lee Mitchell</description>
+    <title>Categories on andyleemitchell</title>
+    <link>https://andyleemitchell/github.io/categories/</link>
+    <description>Recent content in Categories on andyleemitchell</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
+    <copyright>© 2021 Andy Lee Mitchell</copyright>
     
-	<atom:link href="https://andyleemitchell.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://andyleemitchell/github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

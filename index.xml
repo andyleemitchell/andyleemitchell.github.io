@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Lee Mitchell</title>
-    <link>https://andyleemitchell.github.io/</link>
-    <description>Recent content on Andy Lee Mitchell</description>
+    <title>About me on andyleemitchell</title>
+    <link>https://andyleemitchell/github.io/</link>
+    <description>Recent content in About me on andyleemitchell</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 17 Aug 2022 11:54:08 +0100</lastBuildDate>
+    <language>en</language>
+    <copyright>© 2021 Andy Lee Mitchell</copyright>
+    <lastBuildDate>Wed, 17 Aug 2022 11:17:29 +0100</lastBuildDate>
     
-	<atom:link href="https://andyleemitchell.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://andyleemitchell/github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Math Test</title>
-      <link>https://andyleemitchell.github.io/posts/math-test/</link>
+      <link>https://andyleemitchell/github.io/posts/math-test/</link>
       <pubDate>Wed, 17 Aug 2022 11:54:08 +0100</pubDate>
       
-      <guid>https://andyleemitchell.github.io/posts/math-test/</guid>
-      <description>Testing if math works $e = mc^2$</description>
+      <guid>https://andyleemitchell/github.io/posts/math-test/</guid>
+      <description>Testing if math works $$e = mc^2$$</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://andyleemitchell/github.io/about/</link>
+      <pubDate>Wed, 17 Aug 2022 11:17:29 +0100</pubDate>
+      
+      <guid>https://andyleemitchell/github.io/about/</guid>
+      <description>Hello! I&amp;rsquo;m Andy and I am a third year Electronic Engineering student from Ireland. This website is a place for me to store college notes that I write, blog posts that I may write about some of the topics I am interested in (see below), as well as show off any projects I do. Don&amp;rsquo;t hesitate to reach out if you have any questions or comments. :)
+Interests  blah blah blah  </description>
     </item>
     
     <item>
       <title>Test Post</title>
-      <link>https://andyleemitchell.github.io/posts/new-post/</link>
+      <link>https://andyleemitchell/github.io/posts/new-post/</link>
       <pubDate>Wed, 17 Aug 2022 11:17:29 +0100</pubDate>
       
-      <guid>https://andyleemitchell.github.io/posts/new-post/</guid>
+      <guid>https://andyleemitchell/github.io/posts/new-post/</guid>
       <description>Quicksort Below is an implementation of the quicksort algorithm in C++. Thanks to GeeksforGeeks.
 // C++ Implementation of the Quick Sort Algorithm. #include &amp;lt;iostream&amp;gt;using namespace std; int partition(int arr[], int start, int end) { int pivot = arr[start]; int count = 0; for (int i = start + 1; i &amp;lt;= end; i++) { if (arr[i] &amp;lt;= pivot) count++; } // Giving pivot element its correct position 	int pivotIndex = start + count; swap(arr[pivotIndex], arr[start]); // Sorting left and right parts of the pivot element 	int i = start, j = end; while (i &amp;lt; pivotIndex &amp;amp;&amp;amp; j &amp;gt; pivotIndex) { while (arr[i] &amp;lt;= pivot) { i++; } while (arr[j] &amp;gt; pivot) { j--; } if (i &amp;lt; pivotIndex &amp;amp;&amp;amp; j &amp;gt; pivotIndex) { swap(arr[i++], arr[j--]); } } return pivotIndex; } void quickSort(int arr[], int start, int end) { // base case 	if (start &amp;gt;= end) return; // partitioning the array 	int p = partition(arr, start, end); // Sorting the left part 	quickSort(arr, start, p - 1); // Sorting the right part 	quickSort(arr, p + 1, end); } int main() { int arr[] = { 9, 3, 4, 2, 1, 8 }; int n = 6; quickSort(arr, 0, n - 1); for (int i = 0; i &amp;lt; n; i++) { cout &amp;lt;&amp;lt; arr[i] &amp;lt;&amp;lt; &amp;#34; &amp;#34;; } return 0; } </description>
     </item>
