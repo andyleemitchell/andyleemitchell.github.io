@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2021 Andy Lee Mitchell</copyright>
-    <lastBuildDate>Wed, 17 Aug 2022 11:54:08 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 18 Aug 2022 11:25:05 +0100</lastBuildDate>
     
 	<atom:link href="https://andyleemitchell.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Enabling LaTeX rendering in Hugo</title>
+      <link>https://andyleemitchell.github.io/posts/latex-in-hugo/</link>
+      <pubDate>Thu, 18 Aug 2022 11:25:05 +0100</pubDate>
+      
+      <guid>https://andyleemitchell.github.io/posts/latex-in-hugo/</guid>
+      <description>Some Hugo themes might have LaTeX rendering support built in, but they are usually not well documented. It may be worth looking through the layouts directory of your theme, to see if there are any files called math.html, katex.html, or math-jax.html. If there are, you likely have support for LaTeX rendering already enabled, and so all you would need to do this add a math variable to your front matter for any posts on your site.</description>
+    </item>
     
     <item>
       <title>Math Test</title>

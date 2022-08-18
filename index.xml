@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Enabling LaTeX rendering in Hugo</title>
+      <link>https://andyleemitchell.github.io/posts/latex-in-hugo/</link>
+      <pubDate>Thu, 18 Aug 2022 11:25:05 +0100</pubDate>
+      
+      <guid>https://andyleemitchell.github.io/posts/latex-in-hugo/</guid>
+      <description>Some Hugo themes might have LaTeX rendering support built in, but they are usually not well documented. It may be worth looking through the layouts directory of your theme, to see if there are any files called math.html, katex.html, or math-jax.html. If there are, you likely have support for LaTeX rendering already enabled, and so all you would need to do this add a math variable to your front matter for any posts on your site.</description>
+    </item>
+    
+    <item>
       <title>Test</title>
       <link>https://andyleemitchell.github.io/projects/test/</link>
       <pubDate>Wed, 17 Aug 2022 23:10:46 +0100</pubDate>
