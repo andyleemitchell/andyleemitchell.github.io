@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head><title>Enabling LaTeX rendering in Hugo &ndash; andyleemitchell</title>
+<meta name="description" content="This is a place to store blog posts, college notes, and to show off my projects.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin="anonymous" />
+
+
+<link rel="stylesheet" href="https://andyleemitchell.github.io/css/colour/gruvbox-dark.css">
+<link rel="stylesheet" href="https://andyleemitchell.github.io/css/colour/dark-mode.css">
+<link rel="stylesheet" href="https://andyleemitchell.github.io/css/risotto.css">
+<link rel="stylesheet" href="https://andyleemitchell.github.io/css/custom.css">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+</head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><h1 class="page__logo"><a href="https://andyleemitchell.github.io/" class="page__logo-inner">andyleemitchell</a></h1>
+<nav class="page__nav main-nav">
+    <ul>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="/about/" title="">About</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="/notes/" title="">notes</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item active" href="/posts/" title="Posts">Posts</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="/projects/" title="Projects">Projects</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+    <header class="content__header">
+        <h1>Enabling LaTeX rendering in Hugo</h1>
+    </header>
+    <div class="content__body">
+        <p>Some Hugo themes might have LaTeX rendering support built in, but they are usually not well documented.
+It may be worth looking through the layouts directory of your theme, to see if there are any
+files called <code>math.html</code>, <code>katex.html</code>, or <code>math-jax.html</code>. If there are, you likely have support
+for LaTeX rendering already enabled, and so all you would need to do this add a <code>math</code> variable to
+your front matter for any posts on your site.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">---
+<span style="color:#75715e"># other various front matter</span>
+math: true
+---
+</code></pre></div><p>Now you should be able to write LaTeX in your posts. Try enclosing some LaTeX math in single or double
+dollar signs, like so: <code>$$\int_{-\infty}^{\infty} \delta\left( \omega-\omega_0 \right) e^{-j\omega t} \, dt$$</code>.
+This should display something similar to this:
+$$\int_{-\infty}^{\infty} \delta\left( \omega-\omega_0 \right) e^{-j\omega t} , dt$$</p>
+<h2 id="i-cant-see-these-files--latex-doesnt-render">I can&rsquo;t see these files / LaTeX doesn&rsquo;t render</h2>
+<p>So your theme doesn&rsquo;t have built in support for LaTeX rendering. Here&rsquo;s how to add it.</p>
+<p>There are two ways to do this, one that involves editing the partials in your theme, and the other that
+overrides them. I will be showing you how to do this by editing the partials in your theme.</p>
+<p>Go to the themes directory, then to layouts and then to partials. Something like <code>themes/THEME_NAME/layouts/partials</code>.
+Inside you should see some files like <code>head.html</code> and <code>footer.html</code>.</p>
+<ol>
+<li>First make a new file called <code>katex.html</code>. Then navigate to <a href="https://katex.org/docs/autorender.html">here</a>. Copy the
+code that contains the <code>DOMContentLoaded</code> function to your <code>katex.html</code> file. The code should look something like below,
+however you should always copy the code directly from the KaTeX website to ensure you have the most up to date code.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">defer</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">defer</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+    document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;DOMContentLoaded&#34;</span>, <span style="color:#66d9ef">function</span>() {
+        <span style="color:#a6e22e">renderMathInElement</span>(document.<span style="color:#a6e22e">body</span>, {
+        <span style="color:#75715e">// customised options
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// • auto-render specific keys, e.g.:
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">delimiters</span><span style="color:#f92672">:</span> [
+            {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;$$&#39;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;$$&#39;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>},
+            {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;$&#39;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;$&#39;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>},
+            {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;\\(&#39;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;\\)&#39;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>},
+            {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;\\[&#39;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;\\]&#39;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>}
+        ],
+        <span style="color:#75715e">// • rendering keys, e.g.:
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">throwOnError</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
+        });
+    });
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><ol start="2">
+<li>Next, go to the <code>head.html</code> file. This will probably already include some stuff for your theme. Add in the following bit of code to
+the end of this file:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">{{ <span style="color:#66d9ef">if</span> .<span style="color:#a6e22e">Page</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">math</span> }}
+    {{ <span style="color:#a6e22e">partial</span> <span style="color:#e6db74">&#34;katex.html&#34;</span> . }}
+{{ <span style="color:#a6e22e">end</span> }}
+</code></pre></div><ol start="3">
+<li>That&rsquo;s it! You should be ready to use LaTeX math in your website now, once you set <code>math: true</code> in your front matter.
+You can use the delimiters in the <code>katex.html</code> file to wrap math commands in, <code>$$ and \\[</code> for block math (on its own line), and <code>$ and \\(</code> for inline math.</li>
+</ol>
+<h2 id="why-katex-over-mathjax">Why KaTeX over MathJax?</h2>
+<p>Simply a speed reason. Both of them are easy enough to implement in a Hugo site, but I&rsquo;ve always found KaTeX to be
+much faster at rendering.</p>
+
+    </div>
+    <footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    
+<h1 class="about__title">Welcome!</h1>
+<p class="about__description">This is a place to store blog posts, college notes, and to show off my projects.</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/andyleemitchell/" rel="me" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:andyleemitchell@gmail.com" rel="me" aria-label="Email" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content">
+    
+    
+        <p>
+            
+            2022-08-18
+        </p>
+    
+
+                </div>
+            </section>
+
+            <footer class="page__footer"><p class="copyright">© 2021 Andy Lee Mitchell</p>
+<p class="advertisement">Powered by <a href="https://gohugo.io/">hugo</a> and <a href="https://github.com/joeroe/risotto">risotto</a>.</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>
