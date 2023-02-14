@@ -6,7 +6,7 @@
     <description>Recent content in Posts on andyleemitchell</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2021 Andy Lee Mitchell</copyright>
+    <copyright>© 2023 Andy Lee Mitchell</copyright>
     <lastBuildDate>Thu, 18 Aug 2022 11:25:05 +0100</lastBuildDate>
     
 	<atom:link href="https://andyleemitchell.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -19,25 +19,6 @@
       
       <guid>https://andyleemitchell.github.io/posts/latex-in-hugo/</guid>
       <description>Some Hugo themes might have LaTeX rendering support built in, but they are usually not well documented. It may be worth looking through the layouts directory of your theme, to see if there are any files called math.html, katex.html, or math-jax.html. If there are, you likely have support for LaTeX rendering already enabled, and so all you would need to do this add a math variable to your front matter for any posts on your site.</description>
-    </item>
-    
-    <item>
-      <title>Math Test</title>
-      <link>https://andyleemitchell.github.io/posts/math-test/</link>
-      <pubDate>Wed, 17 Aug 2022 11:54:08 +0100</pubDate>
-      
-      <guid>https://andyleemitchell.github.io/posts/math-test/</guid>
-      <description>Testing if math works $$e = mc^2$$</description>
-    </item>
-    
-    <item>
-      <title>Test Post</title>
-      <link>https://andyleemitchell.github.io/posts/new-post/</link>
-      <pubDate>Wed, 17 Aug 2022 11:17:29 +0100</pubDate>
-      
-      <guid>https://andyleemitchell.github.io/posts/new-post/</guid>
-      <description>Quicksort Below is an implementation of the quicksort algorithm in C++. Thanks to GeeksforGeeks.
-// C++ Implementation of the Quick Sort Algorithm. #include &amp;lt;iostream&amp;gt;using namespace std; int partition(int arr[], int start, int end) { int pivot = arr[start]; int count = 0; for (int i = start + 1; i &amp;lt;= end; i++) { if (arr[i] &amp;lt;= pivot) count++; } // Giving pivot element its correct position 	int pivotIndex = start + count; swap(arr[pivotIndex], arr[start]); // Sorting left and right parts of the pivot element 	int i = start, j = end; while (i &amp;lt; pivotIndex &amp;amp;&amp;amp; j &amp;gt; pivotIndex) { while (arr[i] &amp;lt;= pivot) { i++; } while (arr[j] &amp;gt; pivot) { j--; } if (i &amp;lt; pivotIndex &amp;amp;&amp;amp; j &amp;gt; pivotIndex) { swap(arr[i++], arr[j--]); } } return pivotIndex; } void quickSort(int arr[], int start, int end) { // base case 	if (start &amp;gt;= end) return; // partitioning the array 	int p = partition(arr, start, end); // Sorting the left part 	quickSort(arr, start, p - 1); // Sorting the right part 	quickSort(arr, p + 1, end); } int main() { int arr[] = { 9, 3, 4, 2, 1, 8 }; int n = 6; quickSort(arr, 0, n - 1); for (int i = 0; i &amp;lt; n; i++) { cout &amp;lt;&amp;lt; arr[i] &amp;lt;&amp;lt; &amp;#34; &amp;#34;; } return 0; } </description>
     </item>
     
   </channel>
