@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on andyleemitchell</title>
-    <link>https://andyleemitchell.github.io/projects/</link>
+    <link>https://www.andyleemitchell.com/projects/</link>
     <description>Recent content in Projects on andyleemitchell</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Andy Lee Mitchell</copyright>
-    <lastBuildDate>Wed, 17 Aug 2022 23:10:46 +0100</lastBuildDate><atom:link href="https://andyleemitchell.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Aug 2022 23:10:46 +0100</lastBuildDate><atom:link href="https://www.andyleemitchell.com/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
-      <link>https://andyleemitchell.github.io/projects/test/</link>
+      <link>https://www.andyleemitchell.com/projects/test/</link>
       <pubDate>Wed, 17 Aug 2022 23:10:46 +0100</pubDate>
       
-      <guid>https://andyleemitchell.github.io/projects/test/</guid>
+      <guid>https://www.andyleemitchell.com/projects/test/</guid>
       <description>I don&amp;rsquo;t have any projects lol.</description>
     </item>
     
